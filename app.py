@@ -1,18 +1,19 @@
-from flask import Flask 
+from flask import Flask, request
+from models.task import Task
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_word():
-    return 'Hello word!'
+# CRUD
+# Create(Criar), Read(Ler), Update(Atualizar), Delete(Deletar)
+# Tabela: Tarefa
 
-@app.route('/teste')
-def teste():
-    return 'Teste!'
+tasks = []
 
-@app.route('/teste01')
-def teste01():
-    return 'Teste01'
+@app.route('/tasks', methods=['POST'])
+def create_task():
+    data = request.get_json()
+    new_task = Tasks
+    return 'Teste'
 
 
 app.run(debug=True)
