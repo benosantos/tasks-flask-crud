@@ -17,7 +17,7 @@ def create_task():
     new_task = Task(id=tasks_id_control, title=data['title'], description=data.get('description', ""))
     tasks_id_control += 1
     tasks.append(new_task)
-    return jsonify({'message': 'Nova tafera criada com sucesso'})
+    return jsonify({'message': 'Nova tafera criada com sucesso', 'id': new_task.id})
 
 
 @app.route('/tasks', methods=['GET'])
@@ -39,7 +39,7 @@ def get_task(id):
     return jsonify({'message': 'Nao foi possivel encontrar a atividade'}), 404
 
 
-@app.route('/tasks/<int:id', methods=['PUT'])
+@app.route('/tasks/<int:id>', methods=['PUT'])
 def update_task(id):
     task = None
     for t in tasks:
